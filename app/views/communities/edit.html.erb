@@ -1,6 +1,13 @@
-<h1>Editing Community</h1>
-
-<%= render 'form', community: @community %>
-
-<%= link_to 'Show', @community %> |
-<%= link_to 'Back', communities_path %>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4 text-center">
+        <h3 class="text-muted mb-5">Editing Community</h3>
+            <%= render 'form', community: @community %>
+        </div>
+        <div class="col-lg-4 text-center">
+            <%= link_to 'Show', @community, class: "btn btn-outline-primary" %>
+            <%= link_to 'Back', communities_path, class: "btn btn-outline-secondary" %>
+        </div>
+    </div>
+</div>
