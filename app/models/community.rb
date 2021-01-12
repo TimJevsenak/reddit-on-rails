@@ -1,5 +1,5 @@
 class Community < ApplicationRecord
   belongs_to :user
-  validates_presence_of :name, :description
+  validates_presence_of :user_id, :name, :description
 
 end

@@ -7,12 +7,12 @@
     <h1>Communities</h1>
       <% @communities.each do |community| %>
       <div class="card mx-auto my-5" style="width: 20rem;">
-        <h3 class="card-title mt-3"><%= community.name %></h3>
+        <h3 class="card-title mt-3"><%= link_to community.name, community %></h3>
         <p class="card-text mb-3"><%= community.description %></p>
       </div>
       <% end %>
     </div>
-    <div class="col-lg-2 text-center"><%= link_to 'New Community', new_community_path, class: "btn btn-primary" %></div>
+    <div class="col-lg-2 text-center"><%= link_to 'New Community', new_community_path, class: "btn btn-outline-primary" %></div>
   </div>
 </div>
 
