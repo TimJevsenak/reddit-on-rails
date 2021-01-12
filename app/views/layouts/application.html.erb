@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Readit</title>
-    <link rel="icon" href="app/assets/images/SiteIcons/logo.jpg" type="jpg" sizes="16x16">
+    <title>Read-It</title>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -14,10 +13,10 @@
   </head>
 
   <body>
+    <%= render partial: "layouts/header" %>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
-    <%= render partial: "layouts/header" %>
 
     <%= yield %>
 
