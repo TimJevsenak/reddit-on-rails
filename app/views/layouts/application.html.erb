@@ -16,8 +16,14 @@
   <body>
     <%= render partial: "layouts/header" %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class="alert"></p>
+
+    <% if notice %>
+    <div class="container"><div class="row"><div class="col-lg-4"></div><div class="col-lg-4"><p class="notice alert alert-success"><%= notice %></p></div><div class="col-lg-4"></div></div></div>
+    <% end %>
+    <% if alert %>
+    <div class="container"><div class="row"><div class="col-lg-4"></div><div class="col-lg-4"><p class="alert alert-danger"><%= alert %></p></div><div class="col-lg-4"></div></div></div>
+    <% end %>
 
     <%= yield %>
 
