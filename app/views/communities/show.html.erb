@@ -12,7 +12,7 @@
     <div class="col-lg-2 text-center">
     <p class="text-muted">About this community</p>
     <% if @is_subscribed %>
-      <small class="my-2">You are subscribed to this community.</small>
+      <%= link_to "UNSUBSCRIBE", subscription_path, method: :delete, class: "btn btn-outline-danger my-2" %>
     <% else %>
       <%= render partial: "communities/subscribe", locals: { community_id: @community.id } %>
     <% end %>
