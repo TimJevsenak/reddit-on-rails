@@ -1,15 +1,22 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-2"></div>
+    <div class="col-lg-2 text-center">
+    </div>
     <div class="col-lg-8 text-center">
-    <h1>Communities</h1>
-      <div class="card mx-auto my-5" style="width: 20rem;">
-        <h3 class="card-title mt-3"><%= @community.name %></h3>
+    <h1><%= @community.name %></h1>
+      <div class="card mx-auto my-5">
         <p class="card-text mb-3"><%= @community.description %></p>
         <p class="card-text"><em><small class="text-muted">created <%= time_ago_in_words(@community.created_at) %> ago</small></em></p>
       </div>
     </div>
     <div class="col-lg-2 text-center">
+    <p class="text-muted">About this community</p>
+    <% if @is_subscribed %>
+      <small class="my-2">You are subscribed to this community.</small>
+    <% else %>
+      <%= render partial: "communities/subscribe", locals: { community_id: @community.id } %>
+    <% end %>
+    <p class="mt-2 mb-5"><%= pluralize @subscriber_count, "member" %></p>
     <%= link_to 'Edit', edit_community_path(@community), class: "btn btn-outline-primary" %> |
     <%= link_to 'Back', communities_path, class: "btn btn-outline-secondary" %>
     </div>

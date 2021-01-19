@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   validates_uniqueness_of :username
 
-  has_many :communities
+  has_many :communities, through: :subscriptions
 end

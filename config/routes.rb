@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get '/users', to: redirect('home#index')
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  resources :subscriptions
+
   resources :dashboard, only: [:index]
   resources :home, only: [:index]
   root to: "home#index"
