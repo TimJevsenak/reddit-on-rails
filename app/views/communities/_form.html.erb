@@ -9,6 +9,15 @@
     <%= form.text_area :description, class: "form-control", placeholder: "Description" %>
   </div>
 
+  <% if @community.icon.present? %>
+    <%= image_tag @community.icon.url %>
+  <% end %>
+  <div class="form-group">
+    <p class="text-muted m-0"><%= form.label :icon %></p>
+    <%= form.file_field :icon, class: "form-control" %>
+    <%= form.hidden_field :icon_cache %>
+  </div>
+
   <%= form.submit "Submit", class: "btn btn-success" %>
 
 <% end %>

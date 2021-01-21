@@ -3,6 +3,13 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     confirmations: 'confirmations'
   }
+
+  # resources :users, only: [:index, :show, :edit, :update] do
+  #  member do 
+  #    delete 'delete_image/:image_id', action: 'delete_image', as: 'delete_image'
+  #  end
+  # end
+
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end

@@ -6,5 +6,8 @@ class User < ApplicationRecord
 
   validates_uniqueness_of :username
 
+  # has_one_attached :avatar, dependant: :destroy
+  # validates :avatar, content_type: :png, :jpg, :jpeg
+
   has_many :communities, through: :subscriptions
 end

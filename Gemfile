@@ -26,8 +26,16 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'devise'
 
+gem 'carrierwave', "0.10.0"
+gem 'fog', '~> 1.37.0'
+gem 'fog-aws'
+
+gem 'mini_magick'
+
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
+gem 'aws-sdk-s3', require: false
+gem 'active_storage_validations'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
