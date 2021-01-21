@@ -7,7 +7,7 @@ CarrierWave.configure do |config|
     }
     config.storage = :fog
     config.permissions = 0666
-    config.cache_dir = "#{Rails.root}/tmp/"
+    config.cache_dir = "#{Rails.root}/tmp/uploads"
     config.fog_directory  = ENV['BUCKET_NAME']                                      # required
     config.fog_public     = false                                                 # optional, defaults to true
     config.fog_attributes = { cache_control: "public, max-age=#{365.days.to_i}" } # optional, defaults to {}
