@@ -16,7 +16,11 @@
             <div class="card">
                 <ul class="list-group list-group-flush">
                 <% @communities.each do |community| %> 
-                        <li class="list-group-item"><%= link_to community.name, community %></li>
+                        <li class="list-group-item">
+                        <% if community.icon.present? %>
+                            <%= image_tag community.icon.url, :size => "40x40", class: "rounded-circle" %>
+                        <% end %>
+                        <%= link_to community.name, community %></li>
                 <% end %>
                 </ul>
             </div>

@@ -5,7 +5,12 @@
     <h1>Communities</h1>
       <% @communities.each do |community| %>
       <div class="card mx-auto my-5" style="width: 20rem;">
-        <h3 class="card-title mt-3"><%= link_to community.name, community %></h3>
+        <h3 class="card-title mt-3">
+        <% if community.icon.present? %>
+          <%= image_tag community.icon.url, :size => "50x50", class: "rounded-circle" %>
+        <% end %>
+        <%= link_to community.name, community %>
+        </h3>
         <p class="card-text mb-3"><%= community.description %></p>
         <p class="card-text"><em><small class="text-muted">The community is <%= time_ago_in_words(community.created_at) %> old</small></em></p>
       </div>

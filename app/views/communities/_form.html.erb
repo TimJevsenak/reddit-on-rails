@@ -10,7 +10,7 @@
   </div>
 
   <% if @community.icon.present? %>
-    <%= image_tag @community.icon.url %>
+    <%= image_tag @community.icon.url, :size => "100x100", class: "rounded-circle mt-5" %>
   <% end %>
   <div class="form-group">
     <p class="text-muted m-0"><%= form.label :icon %></p>
