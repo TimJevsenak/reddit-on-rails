@@ -27,16 +27,15 @@
         </div>
         <div class="col-lg-8">
         <h4 class="text-muted mb-5">Recent posts</h4>
-        <% @communities.each do |community| %>
-            <% community.posts.each do |post| %>
+            <% @posts.each do |post| %>
                 <div class="card mb-4 shadow-sm">
                 <div class="card-title my-2">
                     <div class="row">
                     <div class="col-md-3 text-md-left px-4">
-                        <span class="text-muted">r/</span><%= link_to community.name, @community %>
+                        <span class="text-muted">r/</span><%= link_to post.community.name, @community %>
                     </div>
                     <div class="col-md-6 text-md-center">
-                        <h4 class="px-4"><%= link_to post.title, community_post_path(community, post) %></h4>
+                        <h4 class="px-4"><%= link_to post.title, community_post_path(post.community_id, post) %></h4>
                     </div>
                     <div class="col-md-3 text-md-right px-4">
                     By <a href=""><span class="text-muted"> u/</span>User</a>
@@ -59,7 +58,6 @@
                 </div>
                 </div>
             <% end %>
-        <% end %>
             </div>
         </div>
     </div>
