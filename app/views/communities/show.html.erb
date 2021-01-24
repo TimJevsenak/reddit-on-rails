@@ -21,7 +21,7 @@
                   <h4 class="px-4"><%= link_to post.title, community_post_path(@community, post) %></h4>
               </div>
               <div class="col-md-3 text-md-right px-4">
-              By <a href=""><span class="text-muted"> u/</span>User</a>
+              By <a href=""><span class="text-muted"> u/</span><%= post.user.username %></a>
               </div>
               </div>
           </div>
