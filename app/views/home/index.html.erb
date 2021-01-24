@@ -15,7 +15,7 @@
             <h5 class="text-muted mb-4">Top communities</h5>
             <div class="card">
                 <ul class="list-group list-group-flush">
-                <% @communities.each do |community| %> 
+                <% @communities_sidebar.each do |community| %> 
                         <li class="list-group-item">
                         <% if community.icon.present? %>
                             <%= image_tag community.icon.url, :size => "40x40", class: "rounded-circle float-left" %>
@@ -27,31 +27,39 @@
         </div>
         <div class="col-lg-8">
         <h4 class="text-muted mb-5">Recent posts</h4>
-            <div class="card mb-4 shadow-sm">
+        <% @communities.each do |community| %>
+            <% community.posts.each do |post| %>
+                <div class="card mb-4 shadow-sm">
                 <div class="card-title my-2">
                     <div class="row">
                     <div class="col-md-3 text-md-left px-4">
-                    <a href=""><img src="" class="img-fluid" width="32" height="32" style="border-radius: 50%;">
-                        <span class="text-muted">r/</span>Community</a>
+                        <span class="text-muted">r/</span><%= link_to community.name, @community %>
                     </div>
                     <div class="col-md-6 text-md-center">
-                        <h4 class="px-4">Title of post</h4>
+                        <h4 class="px-4"><%= link_to post.title, community_post_path(community, post) %></h4>
                     </div>
                     <div class="col-md-3 text-md-right px-4">
                     By <a href=""><span class="text-muted"> u/</span>User</a>
                     </div>
                     </div>
-                </div><a href="" style="color: black; text-decoration: none;"><img src="" alt="Image of post" class="img-fluid" width="100%" height="10rem"></a><div class="card-body"><a href="" style="color: black; text-decoration: none;">
-                    <p class="card-text" style="overflow: hidden; height: 6rem;">Text</p></a>
+                </div>
+                    <% if post.image.present? %>
+                    <%= image_tag post.image.url, class: "img-fluid", style: "height: 25rem;" %>
+                    <% end %>
+                <div class="card-body">
+                    <p class="card-text" style="overflow: hidden; height: 6rem;"><%= post.post %></p>
                     <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group align-middle">
+                        <div class="btn-group align-middle">
                         <i class="far fa-arrow-square-up fa-2x mx-1 text-danger" aria-hidden="true"></i> <span class="font-weight-bold mx-2 text-primary">0</span>
                         <i class="far fa-arrow-square-down mx-1 fa-2x text-primary" aria-hidden="true"></i>
                         <a href="post_show.php?id=3#bottom" class="text-dark ml-5" style="text-decoration: none;"><i class="fal fa-comment-lines fa-2x" aria-hidden="true"></i></a>
-                    </div>
-                    <small class="text-muted">3 months ago</small>
+                        </div>
+                        <small class="text-muted">Posted <%= time_ago_in_words(post.created_at) %> ago</small>
                     </div>
                 </div>
+                </div>
+            <% end %>
+        <% end %>
             </div>
         </div>
     </div>
