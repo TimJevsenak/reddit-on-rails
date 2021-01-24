@@ -1,37 +1,23 @@
-<%= form_with(model: post, local: true) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<%= form_for [@community, @post] do |form| %>
+  <div class="form-group">
+    <p class="text-muted m-0"><%= label_tag :title %></p>
+    <%= form.text_field :title, class: "form-control", placeholder: "Title" %>
+  </div>
 
-      <ul>
-        <% post.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+  <div class="form-group">
+    <p class="text-muted m-0"><%= label_tag :post %></p>
+    <%= form.text_area :post, class: "form-control", placeholder: "Whats on your mind?" %>
+  </div>
+
+  <% if @post.image.present? %>
+    <%= image_tag @post.image.url, :size => "100x100", class: "rounded-circle mt-5" %>
   <% end %>
-
-  <div class="field">
-    <%= form.label :community_id %>
-    <%= form.text_field :community_id %>
+  <div class="form-group">
+    <p class="text-muted m-0"><%= form.label :image %></p>
+    <%= form.file_field :image, class: "form-control" %>
+    <%= form.hidden_field :image_cache %>
   </div>
 
-  <div class="field">
-    <%= form.label :tittle %>
-    <%= form.text_field :tittle %>
-  </div>
+  <%= form.submit "Submit", class: "btn btn-success" %>
 
-  <div class="field">
-    <%= form.label :post %>
-    <%= form.text_area :post %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

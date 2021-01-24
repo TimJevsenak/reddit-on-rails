@@ -48,12 +48,14 @@ ActiveRecord::Schema.define(version: 2021_01_24_100518) do
 
   create_table "posts", force: :cascade do |t|
     t.bigint "community_id", null: false
-    t.string "tittle"
+    t.bigint "user_id", null: false
+    t.string "title"
     t.text "post"
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["community_id"], name: "index_posts_on_community_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -87,6 +89,7 @@ ActiveRecord::Schema.define(version: 2021_01_24_100518) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "communities", "users"
   add_foreign_key "posts", "communities"
+  add_foreign_key "posts", "users"
   add_foreign_key "subscriptions", "communities"
   add_foreign_key "subscriptions", "users"
 end

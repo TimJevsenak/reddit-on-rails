@@ -14,6 +14,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
+    @community = Community.find(params[:community_id])
     @post = Post.new
   end
 
@@ -25,12 +26,15 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
+    @post.community_id = params[:community_id]
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
+        format.html { redirect_to community_path(@post.community_id), notice: 'Post was successfully created.' }
+        # format.json { render :show, status: :created, location: @post }
       else
+        @community = Community.find(params[:community_id])
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
@@ -69,6 +73,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:community_id, :tittle, :post, :image)
+      params.require(:post).permit(:community_id, :title, :post, :image, :image_cache)
     end
 end

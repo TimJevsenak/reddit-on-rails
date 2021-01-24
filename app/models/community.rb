@@ -4,6 +4,7 @@ class Community < ApplicationRecord
   mount_uploader :icon, IconUploader
 
   validates_presence_of :user_id, :name, :description
+  has_many :posts
   has_many :subscriptions
   has_many :subscribers, through: :subscriptions, source: :user
 

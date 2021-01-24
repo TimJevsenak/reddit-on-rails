@@ -12,4 +12,5 @@ class User < ApplicationRecord
   # validates :avatar, content_type: :png, :jpg, :jpeg
 
   has_many :communities, through: :subscriptions
+  has_many :posts
 end
