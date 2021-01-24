@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @community= Community.find(params[:community_id])
   end
 
   # GET /posts/new

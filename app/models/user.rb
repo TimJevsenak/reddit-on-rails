@@ -7,6 +7,7 @@ class User < ApplicationRecord
   mount_uploader :avatar, IconUploader
         
   validates_uniqueness_of :username
+  validates_presence_of :username
 
   # has_one_attached :avatar, dependant: :destroy
   # validates :avatar, content_type: :png, :jpg, :jpeg
