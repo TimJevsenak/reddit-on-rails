@@ -18,9 +18,9 @@
                 <% @communities.each do |community| %> 
                         <li class="list-group-item">
                         <% if community.icon.present? %>
-                            <%= image_tag community.icon.url, :size => "40x40", class: "rounded-circle" %>
+                            <%= image_tag community.icon.url, :size => "40x40", class: "rounded-circle float-left" %>
                         <% end %>
-                        <%= link_to community.name, community %></li>
+                        <%= link_to community.name, community, class: "align-middle" %></li>
                 <% end %>
                 </ul>
             </div>

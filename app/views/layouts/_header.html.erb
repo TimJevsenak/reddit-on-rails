@@ -8,9 +8,20 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
             <% if user_signed_in? %>
                <ul class="navbar-nav ml-auto">
+               <% if @header_user.avatar.present? %>
+                    <li class="nav-item">
+                        <%= image_tag @header_user.avatar.url, :size => "40x40", class: "rounded-circle mr-3" %>
+                    </li>
+                <% end %>
+                <% if @header_user.username.present? %>
+                    <li class="nav-item">
+                        <%= link_to @header_user.username + "s' account", edit_user_registration_path, class: "btn btn-sm btn-secondary mr-2 mb-sm-2", style: "text-decoration: none;" %>
+                    </li>
+                <% else %>
                     <li class="nav-item">
                         <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-sm btn-secondary mr-2 mb-sm-2", style: "text-decoration: none;" %>
                     </li>
+                <% end %>
                     <li class="nav-item">
                         <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-sm btn-light", style: "text-decoration: none;" %>
                     </li>

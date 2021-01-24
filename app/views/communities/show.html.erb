@@ -8,10 +8,7 @@
         <%= image_tag @community.icon.url, :size => "50x50", class: "rounded-circle" %>
       <% end %>
       <%= @community.name %></h1>
-      <div class="card mx-auto my-5">
-        <p class="card-text mb-3"><%= @community.description %></p>
-        <p class="card-text"><em><small class="text-muted">created <%= time_ago_in_words(@community.created_at) %> ago</small></em></p>
-      </div>
+        <p class="mb-5"><%= @community.description %></p>
       <h2 class="text-muted">All Posts</h2>
       <% @posts.each do |post| %>
          <div class="card mb-4 shadow-sm">
@@ -46,13 +43,18 @@
     </div>
     <div class="col-lg-2 text-center">
     <p class="text-muted">About this community</p>
+    <p class=""><em><small class="text-muted">created <%= time_ago_in_words(@community.created_at) %> ago</small></em></p>
     <% if @is_subscribed %>
       <%= link_to "UNSUBSCRIBE", subscription_path, method: :delete, class: "btn btn-outline-danger my-2" %>
     <% else %>
       <%= render partial: "communities/subscribe", locals: { community_id: @community.id } %>
     <% end %>
     <p class="mt-2 mb-5"><%= pluralize @subscriber_count, "member" %></p>
+    <% if @is_subscribed %>
     <%= link_to "Create new post", new_community_post_path(@community), class: "btn btn-primary" %>
+    <% else %>
+    <p>Subscribe to make a post.</p>
+    <% end %>
     </div>
   </div>
 </div>
