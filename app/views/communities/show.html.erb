@@ -43,6 +43,11 @@
       <% end %>
     </div>
     <div class="col-lg-2 text-center">
+    <% if user_signed_in? %>
+      <% if @community.user_id == current_user.id %>
+        <%= link_to "Edit your community", edit_community_path, class: "btn btn-success" %>
+      <% end %>
+    <% end %>
     <p class="text-muted">About this community</p>
     <p class=""><em><small class="text-muted">created <%= time_ago_in_words(@community.created_at) %> ago</small></em></p>
     <% if @is_subscribed %>
