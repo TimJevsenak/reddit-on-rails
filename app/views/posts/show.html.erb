@@ -36,6 +36,9 @@
         </div>
     </div>
     <div class="col-lg-2 text-center">
+      <% if @post.user_id == current_user.id %>
+        <%= link_to "Edit my post", edit_community_post_path, class: "btn btn-success" %>
+      <% end %>
     </div>
   </div>
 </div>

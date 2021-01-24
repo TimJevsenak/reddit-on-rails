@@ -1,6 +1,12 @@
-<h1>Editing Post</h1>
-
-<%= render 'form', post: @post %>
-
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4 text-center">
+        <h3 class="text-muted mb-5">Edit Post</h3>
+            <%= render 'form', post: @post %>
+        </div>
+        <div class="col-lg-4 text-center">
+            <%= link_to 'Back', community_post_path, class: "btn btn-outline-secondary" %>
+        </div>
+    </div>
+</div>
