@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   resources :communities
   devise_for :users, controllers: {
     confirmations: 'confirmations'
