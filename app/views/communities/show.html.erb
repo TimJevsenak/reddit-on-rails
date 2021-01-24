@@ -46,7 +46,7 @@
     <div class="col-lg-2 text-center">
     <% if user_signed_in? %>
       <% if @community.user_id == current_user.id %>
-        <%= link_to "Edit your community", edit_community_path, class: "btn btn-success" %>
+        <%= link_to "Edit my community", edit_community_path, class: "btn btn-success mb-2" %>
       <% end %>
     <% end %>
     <p class="text-muted">About this community</p>
