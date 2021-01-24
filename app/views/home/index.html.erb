@@ -32,7 +32,7 @@
                 <div class="card-title my-2">
                     <div class="row">
                     <div class="col-md-3 text-md-left px-4">
-                        <span class="text-muted">r/</span><%= link_to post.community.name, @community %>
+                        <span class="text-muted">r/</span><%= link_to post.community.name, post.community %>
                     </div>
                     <div class="col-md-6 text-md-center">
                         <h4 class="px-4"><%= link_to post.title, community_post_path(post.community_id, post) %></h4>
