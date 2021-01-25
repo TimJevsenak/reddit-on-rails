@@ -14,8 +14,8 @@ class PostsController < ApplicationController
     @vote = Vote.new
     @already_voted = user_signed_in? ? Vote.where(post_id: @post.id, user_id: current_user.id).any? : false
     @is_upvote = user_signed_in? ? Vote.where(post_id: @post.id, user_id: current_user.id, upvote: 'true').any? : false
-    @upvotes = Vote.where(post_id: @post.id, user_id: current_user.id, upvote: 'true').count
-    @downvotes = Vote.where(post_id: @post.id, user_id: current_user.id, upvote: 'false').count
+    @upvotes = Vote.where(post_id: @post.id, upvote: 'true').count
+    @downvotes = Vote.where(post_id: @post.id, upvote: 'false').count
     @score = @upvotes - @downvotes
   end
 

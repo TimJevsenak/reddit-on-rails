@@ -26,13 +26,17 @@
               <p class="card-text"><%= @post.post %></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group align-middle">
+                <% if ! user_signed_in? %>
+                  <%= link_to "Sign in to vote.", new_user_session_path, class: "btn btn-sm btn-outline-info" %>
+                <% else %>
                   <% if ! @already_voted %>
                   <%= render partial: "posts/upvote", locals: { community_id: @community.id, post_id: @post.id } %>
                   <%= render partial: "posts/downvote", locals: { community_id: @community.id, post_id: @post.id } %>
                   <% else %>
-                  <small class="text-muted mr-2">Delete your vote</small>
-                  <%= link_to vote_path, method: :delete do %>
-                    <i class="fe fe-trash text-dark"></i>
+                    <small class="text-muted mr-2">Delete your vote</small>
+                    <%= link_to vote_path, method: :delete do %>
+                      <i class="fe fe-trash text-dark"></i>
+                    <% end %>
                   <% end %>
                 <% end %>
                   <span class="font-weight-bold mx-2 <% if @score > 0%>text-danger<% else %>text-primary<% end %>">Score: <%= @score %></span>
@@ -44,7 +48,7 @@
         </div>
     </div>
     <div class="col-lg-2 text-center">
-      <% if @post.user_id == current_user.id %>
+      <% if user_signed_in? && @post.user_id == current_user.id %>
         <%= link_to "Edit my post", edit_community_post_path, class: "btn btn-success" %>
       <% end %>
     </div>
