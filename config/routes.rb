@@ -3,7 +3,8 @@ Rails.application.routes.draw do
     resources :posts
   end
   devise_for :users, controllers: {
-    confirmations: 'confirmations'
+    confirmations: 'confirmations',
+    omniauth_callbacks: 'users/omniauth'
   }
 
   # resources :users, only: [:index, :show, :edit, :update] do
