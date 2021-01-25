@@ -4,4 +4,6 @@ class Post < ApplicationRecord
   belongs_to :user
 
   mount_uploader :image, IconUploader
+
+  has_many :votes, dependent: :destroy
 end

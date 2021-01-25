@@ -14,4 +14,5 @@ class User < ApplicationRecord
 
   has_many :communities, through: :subscriptions
   has_many :posts
+  has_many :votes, dependent: :destroy
 end

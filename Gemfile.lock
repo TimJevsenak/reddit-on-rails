@@ -117,6 +117,8 @@ GEM
     dry-inflector (0.2.0)
     erubi (1.10.0)
     excon (0.78.1)
+    feathericon-rails (1.0.0)
+      rails (>= 4.0.0)
     ffi (1.13.1-x64-mingw32)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
@@ -397,6 +399,7 @@ DEPENDENCIES
   carrierwave (= 0.10.0)
   devise
   dotenv-rails
+  feathericon-rails
   fog (~> 1.37.0)
   fog-aws
   image_processing (~> 1.2)
