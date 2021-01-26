@@ -65,7 +65,8 @@
         <%= link_to "Comment", new_comment_path(:post_id => @post.id), class: "btn btn-info mb-2" %>
       <% end %>
       <% if user_signed_in? && @post.user_id == current_user.id %>
-        <%= link_to "Edit my post", edit_community_post_path, class: "btn btn-success" %>
+        <%= link_to "Edit my post", edit_community_post_path, class: "btn btn-success mb-2" %>
+        <%= link_to "Delete my post", community_post_path(@post.community, @post), class: "btn btn-danger", method: :delete %>
       <% end %>
     </div>
   </div>

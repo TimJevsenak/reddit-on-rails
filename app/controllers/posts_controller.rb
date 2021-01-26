@@ -67,9 +67,19 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    @community = @post.community
+    @votes = Vote.where(post_id: @post.id)
+    @votes.each do |vote|
+      vote.destroy
+    end
+    @comments = Comment.where(post_id: @post.id)
+    @comments.each do |comment|
+      comment.destroy
+    end
+
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to community_path(@community), notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
