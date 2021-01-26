@@ -40,7 +40,6 @@
                   <% end %>
                 <% end %>
                   <span class="font-weight-bold mx-2 <% if @score > 0%>text-danger<% else %>text-primary<% end %>">Score: <%= @score %></span>
-                  <a href="post_show.php?id=3#bottom" class="text-dark ml-5" style="text-decoration: none;"><i class="fal fa-comment-lines fa-2x" aria-hidden="true"></i></a>
                 </div>
                 <small class="text-muted">Posted <%= time_ago_in_words(@post.created_at) %> ago</small>
               </div>
