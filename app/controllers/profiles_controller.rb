@@ -13,7 +13,7 @@ class ProfilesController < ApplicationController
                 format.json { head :no_content }
               end  
         end
-        @users = User.all
+        @users = User.where.not(email: current_user.email)
         @communities = Community.all
         @posts = Post.all
     end

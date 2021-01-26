@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   end
   devise_for :users, controllers: {
     confirmations: 'confirmations',
-    omniauth_callbacks: 'users/omniauth'
+    omniauth_callbacks: 'users/omniauth',
   }
+
+  resources :registrations
 
   # resources :users, only: [:index, :show, :edit, :update] do
   #  member do 
