@@ -49,10 +49,10 @@
         <h3 class="text-muted">Comments</h3>
         <% @comments.each do |comment| %>
           <div class="card text-left mb-3">
-          <% if comment.post.user.avatar? %>
-              <%= image_tag comment.post.user.avatar.url, :size => "25x25", class: "rounded-circle float-left ml-1 mt-3" %>
+          <% if comment.user.avatar? %>
+              <%= image_tag comment.user.avatar.url, :size => "25x25", class: "rounded-circle float-left ml-1 mt-3" %>
           <% end %>
-            <span class="ml-1 mb-3">u/<%= @post.user.username %> said:</span>
+            <span class="ml-1 mb-3">u/<%= comment.user.username %> said:</span>
 
             <p class="text-center"><%= comment.text %></p>
 
