@@ -10,7 +10,7 @@
                <ul class="navbar-nav ml-auto">
                <% if @header_user.admin? %>
                 <li class="nav-item">
-                    <%= link_to "Admin panel", "", class: "btn btn-sm btn-light mr-3" %>
+                    <%= link_to "Admin panel", admin_path, class: "btn btn-sm btn-light mr-3" %>
                 </li>
                 <% end %>
                <% if @header_user.avatar.present? %>

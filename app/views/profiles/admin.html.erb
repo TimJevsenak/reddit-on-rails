@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row text-center">
+    <div class="col-lg-4 card">
+      <h3 class="text-muted mb-2">All Users</h3>
+      <% @users.each do |u| %>
+        <h4><%= u.email %></h4>
+        <%= link_to "Delete this user", community_path(u.id), class: "btn btn-sm btn-danger mb-5", data: { confirm: 'Are you sure?' }, method: :delete %>
+      <% end %>
+    </div>
+    <div class="col-lg-4 card">
+      <h3 class="text-muted mb-2">All Communities</h3>
+      <% @communities.each do |c| %>
+        <h4><%= c.name %></h4>
+        <%= link_to "Delete this community", community_path(c.id), class: "btn btn-sm btn-danger mb-5", data: { confirm: 'Are you sure?' }, method: :delete %>
+      <% end %>
+    </div>
+    <div class="col-lg-4 mb-2 card">
+      <h3 class="text-muted">All Posts</h3>
+      <% @posts.each do |p| %>
+      <h4><%= p.title %></h4>
+      <%= link_to "Delete this post", community_post_path(p.community, p), class: "btn btn-sm btn-danger mb-5", data: { confirm: 'Are you sure?' }, method: :delete %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -15,7 +15,7 @@
                   <h4 class="px-4"><%= @post.title %></h4>
               </div>
               <div class="col-md-3 text-md-right px-4">
-              By <a href=""><span class="text-muted"> u/</span><%= @post.user.username %></a>
+              By <span class="text-muted"> u/</span><%= link_to @post.user.username, profile_path(@post.user_id) %>
               </div>
               </div>
           </div>

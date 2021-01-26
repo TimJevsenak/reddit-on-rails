@@ -21,11 +21,14 @@ Rails.application.routes.draw do
 
   get '/search', to: "communities#search"
 
+  get '/admin', to: "profiles#admin"
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :subscriptions
   resources :votes
   resources :comments
+  resources :profiles
 
   resources :dashboard, only: [:index]
   resources :home, only: [:index]
