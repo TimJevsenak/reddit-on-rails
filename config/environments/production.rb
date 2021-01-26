@@ -63,7 +63,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   #Devise
-  config.action_mailer.default_url_options = { host: 'read-it-tim.herokuapp.com'}
+  config.action_mailer.default_url_options = { host: 'read-it-tim.herokuapp.com', protocol: 'https'}
 
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.perform_deliveries = true
