@@ -1,4 +1,4 @@
-class RegistrationsController < ApplicationController
+class ApplesController < ApplicationController
     before_action :authenticate_user!
 
     def destroy
