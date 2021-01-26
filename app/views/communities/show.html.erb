@@ -11,6 +11,9 @@
         <h3 class="text-muted mt-3">About this Community</h3>
         <p class="mb-5"><%= @community.description %></p>
       <h3 class="text-muted">All Posts</h3>
+      <% if @posts.count <= 0 %>
+        <h5 class="text-muted mt-5">No posts yet.</h5>
+      <% end %>
       <% @posts.each do |post| %>
          <div class="card mb-4 shadow-sm">
           <div class="card-title my-2">
