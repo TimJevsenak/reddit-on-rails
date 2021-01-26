@@ -71,6 +71,24 @@ class CommunitiesController < ApplicationController
   # DELETE /communities/1
   # DELETE /communities/1.json
   def destroy
+    @posts = Post.where(community_id: @community.id)
+    @posts.each do |post|
+      @votes = Vote.where(post_id: post.id)
+      @votes.each do |vote|
+        vote.destroy
+      end
+      @comments = Comment.where(post_id: post.id)
+      @comments.each do |comment|
+        comment.destroy
+      end
+      post.destroy
+    end
+
+    @subscriptions = Subscription.where(community_id: @community.id)
+    @subscriptions.each do |subscription|
+      subscription.destroy
+    end
+
     @community.destroy
     respond_to do |format|
       format.html { redirect_to communities_url, notice: 'Community was successfully destroyed.' }

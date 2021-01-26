@@ -45,6 +45,7 @@
     <% if user_signed_in? %>
       <% if @community.user_id == current_user.id %>
         <%= link_to "Edit my community", edit_community_path, class: "btn btn-success mb-2" %>
+        <%= link_to "Delete my community", community_path, class: "btn btn-danger mb-2", data: { confirm: 'Are you sure?' }, method: :delete %>
       <% end %>
     <% end %>
     <p class="text-muted">About this community</p>
