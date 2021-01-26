@@ -8,6 +8,11 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
             <% if user_signed_in? %>
                <ul class="navbar-nav ml-auto">
+               <% if @header_user.admin? %>
+                <li class="nav-item">
+                    <%= link_to "Admin panel", "", class: "btn btn-sm btn-light mr-3" %>
+                </li>
+                <% end %>
                <% if @header_user.avatar.present? %>
                     <li class="nav-item">
                         <%= image_tag @header_user.avatar.url, :size => "40x40", class: "rounded-circle mr-3" %>
