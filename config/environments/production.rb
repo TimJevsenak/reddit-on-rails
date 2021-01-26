@@ -63,7 +63,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   #Devise
-  config.action_mailer.default_url_options = { host: 'read-it-tim.herokuapp.com'}
+  config.action_mailer.default_url_options = { host: 'https://read-it-tim.herokuapp.com/home'}
 
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.perform_deliveries = true
@@ -72,7 +72,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :user_name => ENV['GMAIL_USERNAME'],
     :password => ENV['GMAIL_PASSWORD'],
-    :domain => 'read-it-tim.herokuapp.com',
+    :domain => 'https://read-it-tim.herokuapp.com',
     :address => 'smtp.gmail.com',
     :port => 587,
     :authentication => 'plain',
