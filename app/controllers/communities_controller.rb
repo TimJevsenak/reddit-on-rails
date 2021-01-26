@@ -2,6 +2,15 @@ class CommunitiesController < ApplicationController
   before_action :authenticate_user!, except: [ :index ,:show ]
   before_action :set_community, only: [:show, :edit, :update, :destroy]
 
+  def search
+    @no_search = true
+    if params[:search].blank?
+      @no_search = false
+    else
+      @parameter = params[:search].downcase
+      @results = Community.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+    end
+  end
   # GET /communities
   # GET /communities.json
   def index
