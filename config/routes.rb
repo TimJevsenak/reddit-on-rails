@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   resources :subscriptions
   resources :votes
+  resources :comments
 
   resources :dashboard, only: [:index]
   resources :home, only: [:index]

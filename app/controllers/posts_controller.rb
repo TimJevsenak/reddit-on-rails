@@ -17,6 +17,7 @@ class PostsController < ApplicationController
     @upvotes = Vote.where(post_id: @post.id, upvote: 'true').count
     @downvotes = Vote.where(post_id: @post.id, upvote: 'false').count
     @score = @upvotes - @downvotes
+    @comments = Comment.where(post_id: @post.id)
   end
 
   # GET /posts/new

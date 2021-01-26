@@ -47,8 +47,23 @@
           </div>
         </div>
         <h3 class="text-muted">Comments</h3>
+        <% @comments.each do |comment| %>
+          <div class="card text-left mb-3">
+          <% if comment.post.user.avatar? %>
+              <%= image_tag comment.post.user.avatar.url, :size => "25x25", class: "rounded-circle float-left ml-1 mt-3" %>
+          <% end %>
+            <span class="ml-1 mb-3">u/<%= @post.user.username %> said:</span>
+
+            <p class="text-center"><%= comment.text %></p>
+
+            <p class="text-muted text-right mr-1"><% if comment.user_id == current_user.id %> <%= link_to comment_path, method: :delete do %><i data-feather="trash-2" class="text-dark"></i><% end %> <% end %><small>Commented <%= time_ago_in_words(comment.created_at) %> ago</small></p>
+          </div>
+        <% end %>
     </div>
     <div class="col-lg-2 text-center">
+      <% if user_signed_in? %>
+        <%= link_to "Comment", new_comment_path(:post_id => @post.id), class: "btn btn-info mb-2" %>
+      <% end %>
       <% if user_signed_in? && @post.user_id == current_user.id %>
         <%= link_to "Edit my post", edit_community_post_path, class: "btn btn-success" %>
       <% end %>
