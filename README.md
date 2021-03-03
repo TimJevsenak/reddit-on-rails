@@ -30,21 +30,18 @@ POSTGRES_HOST='localhost' #localhost for development
 POSTGRES_DB='yourdbname'
 POSTGRES_TEST_DB='testdb'
 
-BUCKET_NAME=s3BucketName
-AWS_ACCESS_KEY_ID=AWSKey
-AWS_SECRET_ACCESS_KEY=secretAccesKey
+BUCKET_NAME='s3BucketName'
+AWS_ACCESS_KEY_ID='AWSKey'
+AWS_SECRET_ACCESS_KEY='secretAccesKey'
 
-FACEBOOK_APP_ID=appID
-FACEBOOK_APP_SECRET=appSecret
+FACEBOOK_APP_ID='appID'
+FACEBOOK_APP_SECRET='appSecret'
 
-GOOGLE_OAUTH_CLIENT_ID=googleid.apps.googleusercontent.com
-GOOGLE_OAUTH_CLIENT_SECRET=clientSecret
+GOOGLE_OAUTH_CLIENT_ID='googleid.apps.googleusercontent.com'
+GOOGLE_OAUTH_CLIENT_SECRET='clientSecret'
 
-GITHUB_ID=yourid
-GITHUB_SECRET=yourSecret
-
-USERNAME=your_smtpusername@domain.com
-PASSWORD=smtpPass
+GMAIL_USERNAME='your_gmailaccount@gmail.com'
+GMAIL_PASSWORD='your_gmail_apppassword'
 
 # Setup
 Just log in and if your database is set correctly you are good to go!
