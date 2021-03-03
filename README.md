@@ -8,15 +8,43 @@ Read-it is a social media platform where users can create communities, share the
 There is also an admin panel where admins can delete users, posts and communities.
 
 # Installation
-Download the files and place them in a folder. Import the database into MySQL.
+Download the files and place them in a folder.
 
-It uses php so you will need server for it to actually work (ex. apache).
+For the first installation run
 
-The database is setup so that you can start using the web app right away.
+bundle install
 
-If you want to send emails whit your own mail server, you will need to change the code in user_insert.php and forgot_password_send.php
+rake db:create
 
-If you want to use the Google and Facebook login, you will have to request your own API key for both of them. Once you do that and replace it, it should work.
+rake db:migrate
+
+After this the database and all the gems should be set.
+
+You have to create your own .env file in the root of the project
+
+In the .env file set your variables:
+
+POSTGRES_USER='postgres'
+POSTGRES_PASSWORD='yourpassword'
+POSTGRES_HOST='localhost' #localhost for development
+POSTGRES_DB='yourdbname'
+POSTGRES_TEST_DB='testdb'
+
+BUCKET_NAME=s3BucketName
+AWS_ACCESS_KEY_ID=AWSKey
+AWS_SECRET_ACCESS_KEY=secretAccesKey
+
+FACEBOOK_APP_ID=appID
+FACEBOOK_APP_SECRET=appSecret
+
+GOOGLE_OAUTH_CLIENT_ID=googleid.apps.googleusercontent.com
+GOOGLE_OAUTH_CLIENT_SECRET=clientSecret
+
+GITHUB_ID=yourid
+GITHUB_SECRET=yourSecret
+
+USERNAME=your_smtpusername@domain.com
+PASSWORD=smtpPass
 
 # Setup
 Just log in and if your database is set correctly you are good to go!
